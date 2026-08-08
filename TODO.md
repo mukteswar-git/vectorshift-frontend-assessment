@@ -21,7 +21,7 @@
 ## 📊 Overall Progress
 
 - [x] Phase 0 — Project Setup
-- [ ] Phase 1 — Design System
+- [x] Phase 1 — Design System
 - [ ] Phase 2 — Base Node Architecture
 - [ ] Phase 3 — Refactor Existing Nodes
 - [ ] Phase 4 — Create New Nodes
@@ -61,27 +61,29 @@
 
 ### Tailwind
 
-- [ ] Configure theme
-- [ ] Configure colors
-- [ ] Configure typography
-- [ ] Configure spacing
-- [ ] Configure border radius
-- [ ] Configure shadows
+- [x] Configure theme
+- [x] Configure colors
+- [x] Configure typography
+- [x] Configure spacing
+- [x] Configure border radius
+- [x] Configure shadows
 
 ### shadcn/ui Components
 
-- [ ] Card
-- [ ] Button
-- [ ] Input
-- [ ] Textarea
-- [ ] Dialog
-- [ ] Badge
-- [ ] Separator
+- [x] Card
+- [x] Button
+- [x] Input
+- [x] Textarea
+- [x] Dialog
+- [x] Badge
+- [x] Separator
 
 ### Icons
 
-- [ ] Select consistent icon set
-- [ ] Assign icon for each node
+- [x] Select consistent icon set
+- [x] Create central icon mapping
+- [x] Assign icon for each existing node
+- [x] Integrate icons into draggable nodes
 
 ---
 
@@ -89,7 +91,7 @@
 
 ### Base Components
 
-- [ ] Create BaseNode
+- [x] Create BaseNode
 - [ ] Create NodeHeader
 - [ ] Create NodeContent
 - [ ] Create NodeHandles
@@ -98,196 +100,187 @@
 
 ### BaseNode Features
 
-- [ ] Title
-- [ ] Icon
-- [ ] Dynamic Handles
+- [x] Title
+- [x] Icon
+- [x] Configurable Handles
 - [ ] Footer
-- [ ] Custom Content
-- [ ] Shared Styling
+- [x] Custom Content
+- [x] Shared Styling
 
 ### Validation
 
-- [ ] Test BaseNode
+- [ ] Test BaseNode independently
 - [ ] Verify reusable architecture
 
 ### Node Configuration
 
 - [ ] Design node configuration schema
-- [ ] Support configurable title
-- [ ] Support configurable icon
-- [ ] Support configurable input handles
-- [ ] Support configurable output handles
+- [x] Support configurable title
+- [x] Support configurable icon
+- [x] Support configurable input handles
+- [x] Support configurable output handles
+- [x] Support configurable custom content
 - [ ] Support configurable fields
 
 ---
 
 ## 🔄 Phase 3 — Refactor Existing Nodes
 
-### Existing Nodes
+### Input Node
 
-- [ ] Input Node
-- [ ] Output Node
-- [ ] Text Node
-- [ ] LLM Node
+- [x] Refactor InputNode to use BaseNode
+- [x] Preserve name state
+- [x] Preserve input type state
+- [x] Preserve source handle
+- [x] Verify InputNode
 
-### Validation
+### LLM Node
 
-- [ ] Input Node works
-- [ ] Output Node works
-- [ ] Text Node works
-- [ ] LLM Node works
+- [x] Refactor LLMNode to use BaseNode
+- [x] Preserve system handle
+- [x] Preserve prompt handle
+- [x] Preserve response handle
+- [x] Verify LLMNode
 
-### Regression Testing
+### Output Node
 
-- [ ] Existing handles still connect
-- [ ] Existing node state still works
-- [ ] Existing functionality unchanged
+- [x] Refactor OutputNode to use BaseNode
+- [x] Preserve name state
+- [x] Preserve output type state
+- [x] Preserve target handle
+- [x] Verify OutputNode
+
+### Text Node
+
+- [x] Refactor TextNode to use BaseNode
+- [x] Preserve text state
+- [x] Preserve textarea
+- [x] Preserve output handle
+- [x] Verify TextNode
+
+### Integration
+
+- [x] Test all four nodes
+- [x] Test node connections
+- [x] Verify React Flow behavior
 
 ---
 
-## ➕ Phase 4 — Create Five New Nodes
+## 🧩 Phase 4 — Create New Nodes
 
-### Required Nodes
+### Node Selection
 
-- [ ] API Node
-- [ ] Database Node
-- [ ] Email Node
-- [ ] Delay Node
-- [ ] JSON Node
+- [ ] Choose five new node types
+- [ ] Define purpose of each node
+- [ ] Define handles for each node
+- [ ] Define fields for each node
+- [ ] Define icon for each node
 
-### Validation
+### Implementation
 
-- [ ] All nodes draggable
-- [ ] Handles positioned correctly
-- [ ] Styling consistent
-- [ ] Functionality working
+- [ ] Create Node 1
+- [ ] Create Node 2
+- [ ] Create Node 3
+- [ ] Create Node 4
+- [ ] Create Node 5
 
-### Node Quality
+### Integration
 
-- [ ] Uses BaseNode abstraction
-- [ ] No duplicated UI code
-- [ ] Consistent styling
+- [ ] Register all five nodes with React Flow
+- [ ] Add all five nodes to toolbar
+- [ ] Verify drag-and-drop
+- [ ] Verify handles
+- [ ] Verify connections
 
 ---
 
 ## 🎨 Phase 5 — Styling & UX
 
-### Canvas
-
-- [ ] Background
-- [ ] Grid
-- [ ] Controls
-- [ ] MiniMap
-
 ### Nodes
 
-- [ ] Card styling
-- [ ] Shadows
-- [ ] Rounded corners
-- [ ] Icons
-- [ ] Hover state
-- [ ] Selected state
-- [ ] Spacing
-- [ ] Typography
+- [ ] Consistent node dimensions
+- [ ] Consistent header
+- [ ] Consistent content spacing
+- [ ] Consistent field styling
+- [ ] Consistent handle styling
+- [ ] Node hover state
+- [ ] Node selected state
 
-### Handles
+### Toolbar
 
-- [ ] Size
-- [ ] Colors
-- [ ] Hover state
+- [x] Styled draggable nodes
+- [ ] Improve toolbar layout
+- [ ] Add visual grouping if needed
 
-### General UI
+### Canvas
 
-- [ ] Buttons
-- [ ] Dialog
-- [ ] Inputs
-- [ ] Consistent spacing
+- [ ] Canvas background
+- [ ] React Flow controls styling
+- [ ] Minimap styling
+- [ ] Edge styling
+- [ ] Selection states
+
+### UX
+
 - [ ] Responsive layout
-
-### Accessibility
-
-- [ ] Labels for inputs
-- [ ] Keyboard focus states
-- [ ] Sufficient color contrast
+- [ ] Clear visual hierarchy
+- [ ] Accessible labels
+- [ ] Keyboard/focus states
 
 ---
 
 ## 📝 Phase 6 — Text Node Logic
 
-### Auto Resize
+### Dynamic Sizing
 
-- [ ] Auto-resize width
-- [ ] Auto-resize height
-- [ ] Set minimum size
-- [ ] Set maximum size
+- [ ] Text node width changes with content
+- [ ] Text node height changes with content
+- [ ] Set sensible minimum dimensions
+- [ ] Prevent uncontrolled growth
 
----
+### Variable Detection
 
-### Variable Parser
-
-- [ ] Create regex for `{{variable}}`
+- [ ] Detect {{ variable }}
 - [ ] Validate JavaScript variable names
 - [ ] Extract unique variables
-- [ ] Unit test parser with sample inputs
-
----
-
-### Variable Parsing
-
-- [ ] Parse `{{variable}}`
-- [ ] Detect valid variables
 - [ ] Ignore invalid variables
-- [ ] Ignore duplicate variables
-
----
+- [ ] Update variables as text changes
 
 ### Dynamic Handles
 
-- [ ] Create one Handle for each detected variable
-- [ ] Position Handles on the left side of the Text Node
-- [ ] Label Handles with the variable name
-- [ ] Update Handles as the text changes
-- [ ] Remove Handles when variables are deleted
-- [ ] Preserve existing output Handle(s)
-- [ ] Ensure Handles remain connectable
+- [ ] Create left handle for each variable
+- [ ] Give each handle a stable ID
+- [ ] Position multiple handles correctly
+- [ ] Remove handles when variables disappear
+- [ ] Preserve output handle
 
 ---
 
-### Testing
-
-- [ ] Single variable (`{{input}}`)
-- [ ] Multiple variables (`{{name}} {{email}}`)
-- [ ] Duplicate variables
-- [ ] Invalid JavaScript identifiers
-- [ ] Variable deletion removes Handle
-- [ ] Handle updates without refresh
-
----
-
-## 🔗 Phase 7 — Backend Integration
+## 🔌 Phase 7 — Backend Integration
 
 ### Frontend
 
-- [ ] Serialize nodes
-- [ ] Serialize edges
-- [ ] Send POST request
-- [ ] Handle loading state
-- [ ] Handle API success
-- [ ] Handle API errors
+- [ ] Read nodes from React Flow
+- [ ] Read edges from React Flow
+- [ ] Send pipeline to /pipelines/parse
+- [ ] Handle successful response
+- [ ] Handle request errors
 
 ### Backend
 
-- [ ] Count nodes
-- [ ] Count edges
-- [ ] Verify DAG
-- [ ] Return response
+- [ ] Receive nodes
+- [ ] Receive edges
+- [ ] Calculate num_nodes
+- [ ] Calculate num_edges
+- [ ] Determine whether graph is DAG
+- [ ] Return required response
 
-### Result Dialog
+### Result
 
-- [ ] Display node count
-- [ ] Display edge count
-- [ ] Display DAG status
-- [ ] User-friendly UI
+- [ ] Display num_nodes
+- [ ] Display num_edges
+- [ ] Display is_dag
+- [ ] User-friendly alert
 
 ---
 
@@ -295,68 +288,48 @@
 
 ### Node Testing
 
-- [ ] Drag
-- [ ] Drop
-- [ ] Select
-- [ ] Delete
+- [ ] Test all original nodes
+- [ ] Test all five new nodes
+- [ ] Test node connections
+- [ ] Test node deletion
+- [ ] Test node movement
 
-### Edge Testing
+### Text Node
 
-- [ ] Connect
-- [ ] Disconnect
-- [ ] Multiple connections
+- [ ] Test long text
+- [ ] Test multiple variables
+- [ ] Test duplicate variables
+- [ ] Test invalid variables
+- [ ] Test variable removal
 
-### Text Node Testing
-
-- [ ] Resize
-- [ ] Dynamic handles
-- [ ] Variable parsing
-
-### Backend Testing
-
-- [ ] Empty graph
-- [ ] Single node
-- [ ] Valid DAG
-- [ ] Invalid DAG
-- [ ] Large graph
-
-### Edge Cases
+### Backend
 
 - [ ] Empty pipeline
-- [ ] Disconnected graph
+- [ ] Single node
+- [ ] Linear DAG
+- [ ] Branching DAG
 - [ ] Cyclic graph
-- [ ] Large pipeline
+- [ ] Invalid request
 
-### UI Testing
+### Build
 
-- [ ] Zoom
-- [ ] Pan
-- [ ] Responsive layout
-- [ ] Dialog
+- [ ] npm run build
+- [ ] Fix production build issues
 
 ---
 
 ## 🧹 Phase 9 — Code Cleanup
 
-### Cleanup
-
-- [ ] Remove console.log
-- [ ] Remove dead code
 - [ ] Remove unused imports
-- [ ] Remove commented code
-
-### Refactoring
-
-- [ ] Extract reusable functions
-- [ ] Organize folders
-- [ ] Organize imports
-- [ ] Improve naming
-
-### Validation
-
-- [ ] npm run build
-- [ ] npm run lint
-- [ ] Backend runs successfully
+- [ ] Remove unused components
+- [ ] Remove temporary code
+- [ ] Remove inline styles where appropriate
+- [ ] Remove duplicated logic
+- [ ] Review component naming
+- [ ] Review file organization
+- [ ] Review React Flow node registration
+- [ ] Review state management
+- [ ] Review error handling
 
 ---
 
@@ -366,47 +339,39 @@
 
 - [ ] Project overview
 - [ ] Features
-- [ ] Architecture
-- [ ] Folder structure
+- [ ] Tech stack
 - [ ] Installation
-- [ ] Running locally
-- [ ] Design decisions
-- [ ] Assumptions
-- [ ] Future improvements
-- [ ] Screenshots
+- [ ] Frontend setup
+- [ ] Backend setup
+- [ ] Environment variables
+- [ ] Running the application
+- [ ] Architecture overview
+- [ ] Node abstraction explanation
+- [ ] Text node logic explanation
+- [ ] Backend integration explanation
+
+### Code
+
+- [ ] Add comments where genuinely useful
+- [ ] Document non-obvious logic
 
 ---
 
 ## 🚀 Phase 11 — Final Submission
 
-### Assessment Verification
-
-- [ ] Part 1 — Node Abstraction completed
-- [ ] Part 2 — Styling completed
-- [ ] Part 3 — Text Node Logic completed
-- [ ] Part 4 — Backend Integration completed
-
-### Final Quality Checks
-
-- [ ] All assessment requirements satisfied
-- [ ] Manual testing completed
-- [ ] No console errors or warnings
-- [ ] Production build succeeds (`npm run build`)
-- [ ] Backend starts successfully
-- [ ] README reviewed and updated
-
-### Version Control
-
-- [ ] Review changed files
-- [ ] Write meaningful commit message
-- [ ] Push latest changes to GitHub
-- [ ] Verify GitHub repository is up to date
-
-### Submission
-
-- [ ] Verify repository link/access
-- [ ] Submit assessment
-- [ ] Save confirmation email or submission confirmation
+- [ ] Run frontend
+- [ ] Run backend
+- [ ] Test complete workflow
+- [ ] Test all nodes
+- [ ] Test Text node variables
+- [ ] Test backend submission
+- [ ] Run production build
+- [ ] Check console for errors
+- [ ] Check network errors
+- [ ] Check Git status
+- [ ] Push final changes
+- [ ] Verify GitHub repository
+- [ ] Prepare submission
 
 ---
 

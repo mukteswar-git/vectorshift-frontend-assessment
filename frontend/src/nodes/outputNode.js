@@ -1,11 +1,18 @@
-// outputNode.js
-
 import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
+import { Position } from 'reactflow';
+
+import { BaseNode } from '../components/nodes/BaseNode';
+import { Input } from '../components/ui/input';
+import { NODE_ICONS } from '../components/node-icons';
 
 export const OutputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.outputName || id.replace('customOutput-', 'output_'));
-  const [outputType, setOutputType] = useState(data.outputType || 'Text');
+  const [currName, setCurrName] = useState(
+    data?.outputName || id.replace('customOutput-', 'output_')
+  );
+
+  const [outputType, setOutputType] = useState(
+    data?.outputType || 'Text'
+  );
 
   const handleNameChange = (e) => {
     setCurrName(e.target.value);
@@ -15,33 +22,48 @@ export const OutputNode = ({ id, data }) => {
     setOutputType(e.target.value);
   };
 
+  const handles = [
+    {
+      type: 'target',
+      position: Position.Left,
+      id: `${id}-value`,
+    },
+  ];
+
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <Handle
-        type="target"
-        position={Position.Left}
-        id={`${id}-value`}
-      />
-      <div>
-        <span>Output</span>
-      </div>
-      <div>
-        <label>
-          Name:
-          <input 
-            type="text" 
-            value={currName} 
-            onChange={handleNameChange} 
+    <BaseNode
+      title="Output"
+      icon={NODE_ICONS.customOutput}
+      handles={handles}
+    >
+      <div className="space-y-3">
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium text-muted-foreground">
+            Name
+          </label>
+
+          <Input
+            value={currName}
+            onChange={handleNameChange}
+            className="h-8"
           />
-        </label>
-        <label>
-          Type:
-          <select value={outputType} onChange={handleTypeChange}>
+        </div>
+
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium text-muted-foreground">
+            Type
+          </label>
+
+          <select
+            value={outputType}
+            onChange={handleTypeChange}
+            className="h-8 w-full rounded-md border border-border bg-surface px-2 text-xs text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+          >
             <option value="Text">Text</option>
-            <option value="File">Image</option>
+            <option value="Image">Image</option>
           </select>
-        </label>
+        </div>
       </div>
-    </div>
+    </BaseNode>
   );
-}
+};

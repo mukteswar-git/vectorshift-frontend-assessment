@@ -1,35 +1,44 @@
-// textNode.js
-
 import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
+import { Position } from 'reactflow';
+
+import { BaseNode } from '../components/nodes/BaseNode';
+import { Textarea } from '../components/ui/textarea';
+import { NODE_ICONS } from '../components/node-icons';
 
 export const TextNode = ({ id, data }) => {
-  const [currText, setCurrText] = useState(data?.text || '{{input}}');
+  const [currText, setCurrText] = useState(
+    data?.text || '{{input}}'
+  );
 
   const handleTextChange = (e) => {
     setCurrText(e.target.value);
   };
 
+  const handles = [
+    {
+      type: 'source',
+      position: Position.Right,
+      id: `${id}-output`,
+    },
+  ];
+
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <div>
-        <span>Text</span>
-      </div>
-      <div>
-        <label>
-          Text:
-          <input 
-            type="text" 
-            value={currText} 
-            onChange={handleTextChange} 
-          />
+    <BaseNode
+      title="Text"
+      icon={NODE_ICONS.text}
+      handles={handles}
+    >
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground">
+          Text
         </label>
+
+        <Textarea
+          value={currText}
+          onChange={handleTextChange}
+          className="min-h-[80px]"
+        />
       </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-output`}
-      />
-    </div>
+    </BaseNode>
   );
-}
+};
