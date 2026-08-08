@@ -1,3 +1,4 @@
+import { NodeField } from "../components/nodes/NodeField";
 import { useState } from "react";
 import { Position } from "reactflow";
 
@@ -31,19 +32,11 @@ export const InputNode = ({ id, data }) => {
   return (
     <BaseNode title="Input" icon={NODE_ICONS.customInput} handles={handles}>
       <div className="space-y-3">
-        <div className="space-y-1.5">
-          <label className="text-xs font-medium text-muted-foreground">
-            Name
-          </label>
-
+        <NodeField label="Name">
           <Input value={currName} onChange={handleNameChange} className="h-8" />
-        </div>
+        </NodeField>
 
-        <div className="space-y-1.5">
-          <label className="text-xs font-medium text-muted-foreground">
-            Type
-          </label>
-
+        <NodeField label="Type">
           <select
             value={inputType}
             onChange={handleTypeChange}
@@ -52,7 +45,7 @@ export const InputNode = ({ id, data }) => {
             <option value="Text">Text</option>
             <option value="File">File</option>
           </select>
-        </div>
+        </NodeField>
       </div>
     </BaseNode>
   );

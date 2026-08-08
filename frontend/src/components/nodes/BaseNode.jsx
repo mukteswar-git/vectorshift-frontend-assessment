@@ -1,10 +1,13 @@
 import React from 'react';
-import { Handle } from 'reactflow';
 import { cn } from '../../lib/utils';
+
+import { NodeHeader } from './NodeHeader';
+import { NodeContent } from './NodeContent';
+import { NodeHandles } from './NodeHandles';
 
 export const BaseNode = ({
   title,
-  icon: Icon,
+  icon,
   handles = [],
   children,
   className,
@@ -18,30 +21,16 @@ export const BaseNode = ({
         className
       )}
     >
-      {/* Handles */}
-      {handles.map((handle) => (
-        <Handle
-          key={handle.id}
-          type={handle.type}
-          position={handle.position}
-          id={handle.id}
-          style={handle.style}
-        />
-      ))}
+      <NodeHandles handles={handles} />
 
-      {/* Header */}
-      <div className="flex items-center gap-2 border-b border-border px-3 py-2.5">
-        {Icon && <Icon className="h-4 w-4 text-primary" />}
+      <NodeHeader
+        title={title}
+        icon={icon}
+      />
 
-        <span className="text-sm font-semibold">
-          {title}
-        </span>
-      </div>
-
-      {/* Node content */}
-      <div className="p-3">
+      <NodeContent>
         {children}
-      </div>
+      </NodeContent>
     </div>
   );
 };

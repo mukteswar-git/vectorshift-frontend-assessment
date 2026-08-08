@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Position } from 'reactflow';
 
 import { BaseNode } from '../components/nodes/BaseNode';
+import { NodeField } from '../components/nodes/NodeField';
 import { Input } from '../components/ui/input';
 import { NODE_ICONS } from '../components/node-icons';
 
@@ -37,23 +38,15 @@ export const OutputNode = ({ id, data }) => {
       handles={handles}
     >
       <div className="space-y-3">
-        <div className="space-y-1.5">
-          <label className="text-xs font-medium text-muted-foreground">
-            Name
-          </label>
-
+        <NodeField label="Name">
           <Input
             value={currName}
             onChange={handleNameChange}
             className="h-8"
           />
-        </div>
+        </NodeField>
 
-        <div className="space-y-1.5">
-          <label className="text-xs font-medium text-muted-foreground">
-            Type
-          </label>
-
+        <NodeField label="Type">
           <select
             value={outputType}
             onChange={handleTypeChange}
@@ -62,7 +55,7 @@ export const OutputNode = ({ id, data }) => {
             <option value="Text">Text</option>
             <option value="Image">Image</option>
           </select>
-        </div>
+        </NodeField>
       </div>
     </BaseNode>
   );

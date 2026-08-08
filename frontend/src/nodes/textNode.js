@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Position } from 'reactflow';
 
 import { BaseNode } from '../components/nodes/BaseNode';
+import { NodeField } from '../components/nodes/NodeField';
 import { Textarea } from '../components/ui/textarea';
 import { NODE_ICONS } from '../components/node-icons';
 
@@ -28,17 +29,13 @@ export const TextNode = ({ id, data }) => {
       icon={NODE_ICONS.text}
       handles={handles}
     >
-      <div className="space-y-1.5">
-        <label className="text-xs font-medium text-muted-foreground">
-          Text
-        </label>
-
+      <NodeField label="Text">
         <Textarea
           value={currText}
           onChange={handleTextChange}
           className="min-h-[80px]"
         />
-      </div>
+      </NodeField>
     </BaseNode>
   );
 };
