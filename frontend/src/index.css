@@ -72,6 +72,11 @@
   .react-flow .react-flow__node.selected .node-card {
     @apply border-primary shadow-node-hover;
   }
+
+  /* Text node scrollbar */
+  .node-textarea {
+    scrollbar-width: thin;
+  }
 }
 
 /* React Flow handles */
