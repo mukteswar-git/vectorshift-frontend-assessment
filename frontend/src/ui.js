@@ -12,12 +12,10 @@ import { LLMNode } from "./nodes/llmNode";
 import { OutputNode } from "./nodes/outputNode";
 import { TextNode } from "./nodes/textNode";
 import { ApiNode } from "./nodes/apiNode";
-import { FilterNode } from './nodes/filterNode';
-import { TransformNode } from './nodes/transformNode';
-import { DatabaseNode } from './nodes/databaseNode';
-import { ConditionNode } from './nodes/conditionNode';
-
-import "reactflow/dist/style.css";
+import { FilterNode } from "./nodes/filterNode";
+import { TransformNode } from "./nodes/transformNode";
+import { DatabaseNode } from "./nodes/databaseNode";
+import { ConditionNode } from "./nodes/conditionNode";
 
 const gridSize = 20;
 
@@ -69,33 +67,37 @@ export const PipelineUI = () => {
 
       const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
 
-      if (event?.dataTransfer?.getData("application/reactflow")) {
-        const appData = JSON.parse(
-          event.dataTransfer.getData("application/reactflow"),
-        );
+      const data = event.dataTransfer.getData("application/reactflow");
 
-        const type = appData?.nodeType;
-
-        if (typeof type === "undefined" || !type) {
-          return;
-        }
-
-        const position = reactFlowInstance.project({
-          x: event.clientX - reactFlowBounds.left,
-          y: event.clientY - reactFlowBounds.top,
-        });
-
-        const nodeID = getNodeID(type);
-
-        const newNode = {
-          id: nodeID,
-          type,
-          position,
-          data: getInitNodeData(nodeID, type),
-        };
-
-        addNode(newNode);
+      if (!data) {
+        return;
       }
+
+      const appData = JSON.parse(data);
+      const type = appData?.nodeType;
+
+      if (!type || !reactFlowInstance) {
+        return;
+      }
+
+      const position = reactFlowInstance.project({
+        x: event.clientX - reactFlowBounds.left,
+        y: event.clientY - reactFlowBounds.top,
+      });
+
+      const nodeID = getNodeID(type);
+
+      const newNode = {
+        id: nodeID,
+        type,
+        position,
+        data: {
+          id: nodeID,
+          nodeType: type,
+        },
+      };
+
+      addNode(newNode);
     },
     [reactFlowInstance, getNodeID, addNode],
   );

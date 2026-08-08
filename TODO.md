@@ -198,13 +198,13 @@
 
 ### Nodes
 
-- [ ] Consistent node dimensions
-- [ ] Consistent header
-- [ ] Consistent content spacing
-- [ ] Consistent field styling
-- [ ] Consistent handle styling
-- [ ] Node hover state
-- [ ] Node selected state
+- [x] Consistent node dimensions
+- [x] Consistent header
+- [x] Consistent content spacing
+- [x] Consistent field styling
+- [x] Consistent handle styling
+- [x] Node hover state
+- [x] Node selected state
 
 ### Toolbar
 
@@ -214,7 +214,7 @@
 
 ### Canvas
 
-- [ ] Canvas background
+- [x] Canvas background
 - [ ] React Flow controls styling
 - [ ] Minimap styling
 - [ ] Edge styling

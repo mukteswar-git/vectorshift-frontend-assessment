@@ -15,9 +15,9 @@ export const BaseNode = ({
   return (
     <div
       className={cn(
-        'relative w-[220px] rounded-lg border border-border',
-        'bg-surface shadow-node',
-        'text-foreground',
+        'node-card relative w-[220px] rounded-lg border border-border',
+        'bg-surface text-foreground shadow-node',
+        'transition-shadow duration-150',
         className
       )}
     >

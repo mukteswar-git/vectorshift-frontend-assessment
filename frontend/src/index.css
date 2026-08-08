@@ -55,4 +55,54 @@
   .focus-ring {
     @apply outline-none ring-2 ring-primary/20 ring-offset-2;
   }
+
+  /* Node interaction states */
+  .react-flow__node:hover .node-card {
+    @apply shadow-node-hover;
+  }
+
+  .react-flow__node.selected .node-card {
+    @apply border-primary shadow-node-hover;
+  }
+}
+
+/* React Flow handles */
+.react-flow .react-flow__handle {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+
+  background: #4f46e5;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+
+  cursor: crosshair;
+
+  transition:
+    width 150ms ease,
+    height 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+/* Position handles on the node border */
+.react-flow .react-flow__handle-left {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.react-flow .react-flow__handle-right {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.react-flow .react-flow__handle:hover {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+
+  background: #4338ca;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
