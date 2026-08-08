@@ -32,15 +32,19 @@ export const InputNode = ({ id, data }) => {
   return (
     <BaseNode title="Input" icon={NODE_ICONS.customInput} handles={handles}>
       <div className="space-y-3">
-        <NodeField label="Name">
-          <Input value={currName} onChange={handleNameChange} className="h-8" />
+        <NodeField label="Name" htmlFor={`${id}-name`}>
+          <Input
+            id={`${id}-name`}
+            value={currName}
+            onChange={handleNameChange}
+          />
         </NodeField>
 
-        <NodeField label="Type">
+        <NodeField label="Type" htmlFor={`${id}-type`}>
           <select
+            id={`${id}-type`}
             value={inputType}
             onChange={handleTypeChange}
-            className="h-8 w-full rounded-md border border-border bg-surface px-2 text-xs text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
           >
             <option value="Text">Text</option>
             <option value="File">File</option>

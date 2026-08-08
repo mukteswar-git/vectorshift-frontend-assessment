@@ -56,11 +56,6 @@ export const PipelineUI = () => {
     onConnect,
   } = useStore(selector, shallow);
 
-  const getInitNodeData = (nodeID, type) => {
-    let nodeData = { id: nodeID, nodeType: `${type}` };
-    return nodeData;
-  };
-
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
@@ -109,7 +104,7 @@ export const PipelineUI = () => {
 
   return (
     <>
-      <div ref={reactFlowWrapper} style={{ width: "100wv", height: "70vh" }}>
+      <div ref={reactFlowWrapper} className="h-[70vh] w-full">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -124,9 +119,27 @@ export const PipelineUI = () => {
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
         >
-          <Background color="#aaa" gap={gridSize} />
+          <Background color="#CBD5E1" gap={gridSize} />
+
           <Controls />
-          <MiniMap />
+
+          <MiniMap
+            nodeColor={(node) => {
+              const colors = {
+                customInput: "#2563EB",
+                llm: "#8B5CF6",
+                customOutput: "#7C3AED",
+                text: "#0F766E",
+                api: "#0891B2",
+                filter: "#D97706",
+                transform: "#059669",
+                database: "#475569",
+                condition: "#DC2626",
+              };
+
+              return colors[node.type] || "#94A3B8";
+            }}
+          />
         </ReactFlow>
       </div>
     </>

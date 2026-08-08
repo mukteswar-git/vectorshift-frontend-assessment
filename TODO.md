@@ -209,23 +209,23 @@
 ### Toolbar
 
 - [x] Styled draggable nodes
-- [ ] Improve toolbar layout
-- [ ] Add visual grouping if needed
+- [x] Improve toolbar layout
+- [x] Add visual grouping if needed
 
 ### Canvas
 
 - [x] Canvas background
-- [ ] React Flow controls styling
-- [ ] Minimap styling
-- [ ] Edge styling
-- [ ] Selection states
+- [x] React Flow controls styling
+- [x] Minimap styling
+- [x] Edge styling
+- [x] Selection states
 
 ### UX
 
-- [ ] Responsive layout
-- [ ] Clear visual hierarchy
-- [ ] Accessible labels
-- [ ] Keyboard/focus states
+- [x] Responsive layout
+- [x] Clear visual hierarchy
+- [x] Accessible labels
+- [x] Keyboard/focus states
 
 ---
 
