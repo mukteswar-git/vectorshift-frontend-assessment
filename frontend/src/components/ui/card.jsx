@@ -36,24 +36,16 @@ export function CardTitle({ className, ...props }) {
 
 export function CardDescription({ className, ...props }) {
   return (
-    <p
-      className={cn('text-sm text-muted-foreground', className)}
-      {...props}
-    />
+    <p className={cn('text-sm text-muted-foreground', className)} {...props} />
   );
 }
 
 export function CardContent({ className, ...props }) {
-  return (
-    <div className={cn('p-4 pt-0', className)} {...props} />
-  );
+  return <div className={cn('p-4 pt-0', className)} {...props} />;
 }
 
 export function CardFooter({ className, ...props }) {
   return (
-    <div
-      className={cn('flex items-center p-4 pt-0', className)}
-      {...props}
-    />
+    <div className={cn('flex items-center p-4 pt-0', className)} {...props} />
   );
 }

@@ -42,9 +42,7 @@ export const DraggableNode = ({ type, label }) => {
       title={`Drag ${label} node onto the canvas`}
     >
       {Icon && <Icon className="h-4 w-4" />}
-      <span className="text-xs font-semibold">
-        {label}
-      </span>
+      <span className="text-xs font-semibold">{label}</span>
     </Button>
   );
 };

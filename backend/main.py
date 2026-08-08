@@ -4,7 +4,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-
 app = FastAPI()
 
 
@@ -52,11 +51,7 @@ def parse_pipeline(pipeline: PipelineRequest):
             indegree[target] += 1
 
     # Kahn's algorithm for detecting cycles.
-    queue = [
-        node_id
-        for node_id in node_ids
-        if indegree[node_id] == 0
-    ]
+    queue = [node_id for node_id in node_ids if indegree[node_id] == 0]
 
     visited = 0
 

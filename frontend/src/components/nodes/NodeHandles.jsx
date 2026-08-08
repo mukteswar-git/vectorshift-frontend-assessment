@@ -1,5 +1,5 @@
-import React from "react";
-import { Handle, Position } from "reactflow";
+import React from 'react';
+import { Handle, Position } from 'reactflow';
 
 export const NodeHandles = ({ handles = [] }) => {
   const leftHandles = handles.filter(

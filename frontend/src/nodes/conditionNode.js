@@ -31,16 +31,9 @@ export const ConditionNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode
-      title="Condition"
-      icon={NODE_ICONS.condition}
-      handles={handles}
-    >
+    <BaseNode title="Condition" icon={NODE_ICONS.condition} handles={handles}>
       <NodeField label="Condition">
-        <Input
-          placeholder="value > 10"
-          className="h-8"
-        />
+        <Input placeholder="value > 10" className="h-8" />
       </NodeField>
     </BaseNode>
   );

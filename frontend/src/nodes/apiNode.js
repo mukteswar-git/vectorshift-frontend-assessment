@@ -20,11 +20,7 @@ export const ApiNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode
-      title="API"
-      icon={NODE_ICONS.api}
-      handles={handles}
-    >
+    <BaseNode title="API" icon={NODE_ICONS.api} handles={handles}>
       <div className="space-y-3">
         <NodeField label="Method">
           <select
@@ -39,10 +35,7 @@ export const ApiNode = ({ id }) => {
         </NodeField>
 
         <NodeField label="URL">
-          <Input
-            placeholder="https://api.example.com"
-            className="h-8"
-          />
+          <Input placeholder="https://api.example.com" className="h-8" />
         </NodeField>
       </div>
     </BaseNode>

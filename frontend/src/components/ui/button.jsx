@@ -2,14 +2,10 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 const variants = {
-  default:
-    'bg-primary text-primary-foreground hover:bg-primary-hover',
-  secondary:
-    'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-  outline:
-    'border border-border bg-surface hover:bg-surface-muted',
-  ghost:
-    'hover:bg-surface-muted',
+  default: 'bg-primary text-primary-foreground hover:bg-primary-hover',
+  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+  outline: 'border border-border bg-surface hover:bg-surface-muted',
+  ghost: 'hover:bg-surface-muted',
   destructive:
     'bg-destructive text-destructive-foreground hover:bg-destructive/90',
 };

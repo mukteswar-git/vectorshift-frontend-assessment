@@ -20,16 +20,9 @@ export const FilterNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode
-      title="Filter"
-      icon={NODE_ICONS.filter}
-      handles={handles}
-    >
+    <BaseNode title="Filter" icon={NODE_ICONS.filter} handles={handles}>
       <NodeField label="Condition">
-        <Input
-          placeholder="status === active"
-          className="h-8"
-        />
+        <Input placeholder="status === active" className="h-8" />
       </NodeField>
     </BaseNode>
   );

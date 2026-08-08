@@ -1,12 +1,12 @@
 // store.js
 
-import { create } from "zustand";
+import { create } from 'zustand';
 import {
   addEdge,
   applyNodeChanges,
   applyEdgeChanges,
   MarkerType,
-} from "reactflow";
+} from 'reactflow';
 
 export const useStore = create((set, get) => ({
   nodes: [],
@@ -40,14 +40,14 @@ export const useStore = create((set, get) => ({
       edges: addEdge(
         {
           ...connection,
-          type: "smoothstep",
+          type: 'smoothstep',
           markerEnd: {
             type: MarkerType.Arrow,
             width: 16,
             height: 16,
           },
         },
-        get().edges,
+        get().edges
       ),
     });
   },

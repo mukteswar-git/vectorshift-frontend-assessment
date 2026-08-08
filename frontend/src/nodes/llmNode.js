@@ -28,14 +28,8 @@ export const LLMNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode
-      title="LLM"
-      icon={NODE_ICONS.llm}
-      handles={handles}
-    >
-      <p className="text-xs text-muted-foreground">
-        This is a LLM.
-      </p>
+    <BaseNode title="LLM" icon={NODE_ICONS.llm} handles={handles}>
+      <p className="text-xs text-muted-foreground">This is a LLM.</p>
     </BaseNode>
   );
 };

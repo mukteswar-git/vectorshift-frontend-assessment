@@ -1,11 +1,7 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 
-export const NodeHeader = ({
-  title,
-  icon: Icon,
-  className,
-}) => {
+export const NodeHeader = ({ title, icon: Icon, className }) => {
   return (
     <div
       className={cn(
@@ -13,13 +9,9 @@ export const NodeHeader = ({
         className
       )}
     >
-      {Icon && (
-        <Icon className="h-4 w-4 text-primary" />
-      )}
+      {Icon && <Icon className="h-4 w-4 text-primary" />}
 
-      <span className="text-sm font-semibold">
-        {title}
-      </span>
+      <span className="text-sm font-semibold">{title}</span>
     </div>
   );
 };

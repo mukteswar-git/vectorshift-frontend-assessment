@@ -1,14 +1,12 @@
-import { useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Position, useUpdateNodeInternals } from "reactflow";
+import { useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { Position, useUpdateNodeInternals } from 'reactflow';
 
-import { BaseNode } from "../components/nodes/BaseNode";
-import { NodeField } from "../components/nodes/NodeField";
-import { Textarea } from "../components/ui/textarea";
+import { BaseNode } from '../components/nodes/BaseNode';
+import { NodeField } from '../components/nodes/NodeField';
+import { Textarea } from '../components/ui/textarea';
 
 export const TextNode = ({ id, data }) => {
-  const [currText, setCurrText] = useState(
-    data?.text || "{{input}}"
-  );
+  const [currText, setCurrText] = useState(data?.text || '{{input}}');
 
   const textareaRef = useRef(null);
 
@@ -17,24 +15,18 @@ export const TextNode = ({ id, data }) => {
   const variables = useMemo(() => {
     const regex = /\{\{\s*([A-Za-z_$][A-Za-z0-9_$]*)\s*\}\}/g;
 
-    return [
-      ...new Set(
-        [...currText.matchAll(regex)].map(
-          (match) => match[1]
-        )
-      ),
-    ];
+    return [...new Set([...currText.matchAll(regex)].map((match) => match[1]))];
   }, [currText]);
 
   const handles = [
     ...variables.map((variable) => ({
-      type: "target",
+      type: 'target',
       position: Position.Left,
       id: `${id}-${variable}`,
     })),
 
     {
-      type: "source",
+      type: 'source',
       position: Position.Right,
       id: `${id}-output`,
     },
@@ -51,7 +43,7 @@ export const TextNode = ({ id, data }) => {
     }
 
     // Reset first so the textarea can shrink when text is deleted.
-    textarea.style.height = "auto";
+    textarea.style.height = 'auto';
 
     const nextHeight = Math.min(
       Math.max(textarea.scrollHeight, MIN_HEIGHT),
@@ -68,15 +60,8 @@ export const TextNode = ({ id, data }) => {
   };
 
   return (
-    <BaseNode
-      title="Text"
-      handles={handles}
-      className="w-[320px]"
-    >
-      <NodeField
-        label="Text"
-        htmlFor={`${id}-text`}
-      >
+    <BaseNode title="Text" handles={handles} className="w-[320px]">
+      <NodeField label="Text" htmlFor={`${id}-text`}>
         <Textarea
           ref={textareaRef}
           id={`${id}-text`}

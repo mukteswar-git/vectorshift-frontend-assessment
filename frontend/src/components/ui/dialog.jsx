@@ -19,10 +19,7 @@ export function DialogClose(props) {
   return <DialogPrimitive.Close {...props} />;
 }
 
-export function DialogOverlay({
-  className,
-  ...props
-}) {
+export function DialogOverlay({ className, ...props }) {
   return (
     <DialogPrimitive.Overlay
       className={cn(
@@ -35,11 +32,7 @@ export function DialogOverlay({
   );
 }
 
-export function DialogContent({
-  className,
-  children,
-  ...props
-}) {
+export function DialogContent({ className, children, ...props }) {
   return (
     <DialogPortal>
       <DialogOverlay />
@@ -57,9 +50,7 @@ export function DialogContent({
       >
         {children}
 
-        <DialogPrimitive.Close
-          className="absolute right-4 top-4 rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
-        >
+        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20">
           <X className="h-4 w-4" />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
@@ -68,61 +59,34 @@ export function DialogContent({
   );
 }
 
-export function DialogHeader({
-  className,
-  ...props
-}) {
+export function DialogHeader({ className, ...props }) {
   return (
-    <div
-      className={cn(
-        'flex flex-col space-y-1.5',
-        className
-      )}
-      {...props}
-    />
+    <div className={cn('flex flex-col space-y-1.5', className)} {...props} />
   );
 }
 
-export function DialogTitle({
-  className,
-  ...props
-}) {
+export function DialogTitle({ className, ...props }) {
   return (
     <DialogPrimitive.Title
-      className={cn(
-        'text-lg font-semibold text-foreground',
-        className
-      )}
+      className={cn('text-lg font-semibold text-foreground', className)}
       {...props}
     />
   );
 }
 
-export function DialogDescription({
-  className,
-  ...props
-}) {
+export function DialogDescription({ className, ...props }) {
   return (
     <DialogPrimitive.Description
-      className={cn(
-        'text-sm text-muted-foreground',
-        className
-      )}
+      className={cn('text-sm text-muted-foreground', className)}
       {...props}
     />
   );
 }
 
-export function DialogFooter({
-  className,
-  ...props
-}) {
+export function DialogFooter({ className, ...props }) {
   return (
     <div
-      className={cn(
-        'flex items-center justify-end gap-2 pt-4',
-        className
-      )}
+      className={cn('flex items-center justify-end gap-2 pt-4', className)}
       {...props}
     />
   );

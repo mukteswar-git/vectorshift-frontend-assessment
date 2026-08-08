@@ -20,11 +20,7 @@ export const DatabaseNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode
-      title="Database"
-      icon={NODE_ICONS.database}
-      handles={handles}
-    >
+    <BaseNode title="Database" icon={NODE_ICONS.database} handles={handles}>
       <div className="space-y-3">
         <NodeField label="Operation">
           <select
@@ -39,10 +35,7 @@ export const DatabaseNode = ({ id }) => {
         </NodeField>
 
         <NodeField label="Query">
-          <Input
-            placeholder="SELECT * FROM users"
-            className="h-8"
-          />
+          <Input placeholder="SELECT * FROM users" className="h-8" />
         </NodeField>
       </div>
     </BaseNode>

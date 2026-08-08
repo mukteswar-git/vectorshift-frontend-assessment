@@ -1,17 +1,17 @@
-import { NodeField } from "../components/nodes/NodeField";
-import { useState } from "react";
-import { Position } from "reactflow";
+import { NodeField } from '../components/nodes/NodeField';
+import { useState } from 'react';
+import { Position } from 'reactflow';
 
-import { BaseNode } from "../components/nodes/BaseNode";
-import { Input } from "../components/ui/input";
-import { NODE_ICONS } from "../components/node-icons";
+import { BaseNode } from '../components/nodes/BaseNode';
+import { Input } from '../components/ui/input';
+import { NODE_ICONS } from '../components/node-icons';
 
 export const InputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(
-    data?.inputName || id.replace("customInput-", "input_"),
+    data?.inputName || id.replace('customInput-', 'input_')
   );
 
-  const [inputType, setInputType] = useState(data?.inputType || "Text");
+  const [inputType, setInputType] = useState(data?.inputType || 'Text');
 
   const handleNameChange = (e) => {
     setCurrName(e.target.value);
@@ -23,7 +23,7 @@ export const InputNode = ({ id, data }) => {
 
   const handles = [
     {
-      type: "source",
+      type: 'source',
       position: Position.Right,
       id: `${id}-value`,
     },

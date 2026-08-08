@@ -1,4 +1,4 @@
-import { useStore } from "./store";
+import { useStore } from './store';
 
 export const SubmitButton = () => {
   const nodes = useStore((state) => state.nodes);
@@ -6,10 +6,10 @@ export const SubmitButton = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/pipelines/parse", {
-        method: "POST",
+      const response = await fetch('http://127.0.0.1:8000/pipelines/parse', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           nodes,
@@ -27,14 +27,14 @@ export const SubmitButton = () => {
         `Pipeline Analysis\n\n` +
           `Nodes: ${result.num_nodes}\n` +
           `Edges: ${result.num_edges}\n` +
-          `Is DAG: ${result.is_dag ? "Yes" : "No"}`
+          `Is DAG: ${result.is_dag ? 'Yes' : 'No'}`
       );
     } catch (error) {
-      console.error("Pipeline submission failed:", error);
+      console.error('Pipeline submission failed:', error);
 
       alert(
-        "Unable to analyze the pipeline. " +
-          "Please make sure the backend is running."
+        'Unable to analyze the pipeline. ' +
+          'Please make sure the backend is running.'
       );
     }
   };

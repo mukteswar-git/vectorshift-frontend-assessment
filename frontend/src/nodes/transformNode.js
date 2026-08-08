@@ -20,16 +20,9 @@ export const TransformNode = ({ id }) => {
   ];
 
   return (
-    <BaseNode
-      title="Transform"
-      icon={NODE_ICONS.transform}
-      handles={handles}
-    >
+    <BaseNode title="Transform" icon={NODE_ICONS.transform} handles={handles}>
       <NodeField label="Expression">
-        <Textarea
-          placeholder="value.toUpperCase()"
-          className="min-h-[70px]"
-        />
+        <Textarea placeholder="value.toUpperCase()" className="min-h-[70px]" />
       </NodeField>
     </BaseNode>
   );

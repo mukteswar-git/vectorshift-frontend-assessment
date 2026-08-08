@@ -2,20 +2,20 @@
 // Displays the drag-and-drop UI
 // --------------------------------------------------
 
-import { useState, useRef, useCallback } from "react";
-import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
-import { useStore } from "./store";
-import { shallow } from "zustand/shallow";
+import { useState, useRef, useCallback } from 'react';
+import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
+import { useStore } from './store';
+import { shallow } from 'zustand/shallow';
 
-import { InputNode } from "./nodes/inputNode";
-import { LLMNode } from "./nodes/llmNode";
-import { OutputNode } from "./nodes/outputNode";
-import { TextNode } from "./nodes/textNode";
-import { ApiNode } from "./nodes/apiNode";
-import { FilterNode } from "./nodes/filterNode";
-import { TransformNode } from "./nodes/transformNode";
-import { DatabaseNode } from "./nodes/databaseNode";
-import { ConditionNode } from "./nodes/conditionNode";
+import { InputNode } from './nodes/inputNode';
+import { LLMNode } from './nodes/llmNode';
+import { OutputNode } from './nodes/outputNode';
+import { TextNode } from './nodes/textNode';
+import { ApiNode } from './nodes/apiNode';
+import { FilterNode } from './nodes/filterNode';
+import { TransformNode } from './nodes/transformNode';
+import { DatabaseNode } from './nodes/databaseNode';
+import { ConditionNode } from './nodes/conditionNode';
 
 const gridSize = 20;
 
@@ -62,7 +62,7 @@ export const PipelineUI = () => {
 
       const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
 
-      const data = event.dataTransfer.getData("application/reactflow");
+      const data = event.dataTransfer.getData('application/reactflow');
 
       if (!data) {
         return;
@@ -94,12 +94,12 @@ export const PipelineUI = () => {
 
       addNode(newNode);
     },
-    [reactFlowInstance, getNodeID, addNode],
+    [reactFlowInstance, getNodeID, addNode]
   );
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
-    event.dataTransfer.dropEffect = "move";
+    event.dataTransfer.dropEffect = 'move';
   }, []);
 
   return (
@@ -111,6 +111,7 @@ export const PipelineUI = () => {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
+          deleteKeyCode={['Delete', 'Backspace']}
           onDrop={onDrop}
           onDragOver={onDragOver}
           onInit={setReactFlowInstance}
@@ -126,18 +127,18 @@ export const PipelineUI = () => {
           <MiniMap
             nodeColor={(node) => {
               const colors = {
-                customInput: "#2563EB",
-                llm: "#8B5CF6",
-                customOutput: "#7C3AED",
-                text: "#0F766E",
-                api: "#0891B2",
-                filter: "#D97706",
-                transform: "#059669",
-                database: "#475569",
-                condition: "#DC2626",
+                customInput: '#2563EB',
+                llm: '#8B5CF6',
+                customOutput: '#7C3AED',
+                text: '#0F766E',
+                api: '#0891B2',
+                filter: '#D97706',
+                transform: '#059669',
+                database: '#475569',
+                condition: '#DC2626',
               };
 
-              return colors[node.type] || "#94A3B8";
+              return colors[node.type] || '#94A3B8';
             }}
           />
         </ReactFlow>
